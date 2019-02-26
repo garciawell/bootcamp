@@ -2,9 +2,14 @@
 
 {% block body %}
     <form action="/signup" method="post" enctype="multipart/form-data">
+
+ {% include "_partials/flash.njk" %}
+
       <label for="avatar">
        <img src="/images/avatar.svg" height="24" alt="">
       </label>
+
+
       <input id="avatar" type="file" name="avatar">
       <input type="text" name="name" placeholder="Nome Completo">
       <input type="email" name="email" placeholder="Seu e-mail">
