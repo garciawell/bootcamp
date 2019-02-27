@@ -34,15 +34,15 @@ class AvailableController {
 
     const available = schedule.map(time => {
       const [hour, minute] = time.split(':')
-      const value = date.hour(hour).minute(minute).seconds(0)
+      const value = date.hour(hour).minute(minute).second(0)
 
       return {
         time,
         value: value.format(),
         available: value.isAfter(moment()) &&
-          !appointments.find(a => {
-            moment(a.date).format(time === 'HH:mm')
-          })
+          !appointments.find(a =>
+            moment(a.date).format('HH:mm') === time
+          )
       }
     })
 
