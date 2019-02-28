@@ -1,7 +1,8 @@
 const express = require('express')
-
 const routes = express.Router()
 
-// const UserControlleer = require('./app/controllers/UserController')
+const UserController = require('./app/controllers/UserController')
+
+routes.post('/users', UserController.store)
 
 module.exports = routes
