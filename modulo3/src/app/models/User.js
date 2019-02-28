@@ -1,26 +1,24 @@
-const bcrypt = require('bcryptjs')
+const mongoose = require('mongoose')
 
-module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define('User', {
-    name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    avatar: DataTypes.STRING,
-    password: DataTypes.VIRTUAL,
-    password_hash: DataTypes.STRING,
-    provider: DataTypes.BOOLEAN
-  }, {
-    hooks: {
-      beforeSave: async user => {
-        if (user.password) {
-          user.password_hash = await bcrypt.hash(user.password, 8)
-        }
-      }
-    }
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now
   }
-  )
-  User.prototype.checkPassword = function (password) {
-    return bcrypt.compare(password, this.password_hash)
-  }
+})
 
-  return User
-}
+module.exports = mongoose.model('User', UserSchema)
