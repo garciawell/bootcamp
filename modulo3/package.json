@@ -16,8 +16,12 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.0",
     "mongoose": "^5.4.16",
+    "mongoose-paginate": "^5.0.3",
+    "require-dir": "^1.2.0",
     "sequelize": "^4.42.0",
     "session-file-store": "^1.2.0"
   }
