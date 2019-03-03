@@ -19,7 +19,6 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         allowNull: false
-
       },
       provider_id: {
         type: Sequelize.INTEGER,
@@ -27,7 +26,6 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         allowNull: false
-
       },
       created_at: {
         allowNull: false,
