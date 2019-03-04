@@ -9,6 +9,12 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     outline:0;
   }
+  :hover{
+    transition: all 0.3s ease;
+  }
+  button{
+    transition: all 0.2s ease;
+  }
   body{
     background:#9b65e6;
     text-rendering:optimizeLegibility !important;

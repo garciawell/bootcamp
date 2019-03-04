@@ -7,6 +7,16 @@ export const Container = styled.div`
   margin-top: 50px;
 `;
 
+export const ButtonRefresh = styled.span`
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  padding: 5px;
+  border: 0;
+  color: #9b65e6;
+`;
+
 export const Repository = styled.div`
   width: 250px;
   background: #fff;
@@ -14,6 +24,7 @@ export const Repository = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 10px;
+  position: relative;
 
   header {
     padding: 30px 0 0 0;
@@ -52,6 +63,26 @@ export const Repository = styled.div`
       &:nth-child(2n-1) {
         background: #f5f5f5;
       }
+    }
+  }
+  button {
+    position: absolute;
+    top: 0;
+    right: ${props => (props.left ? '50px' : '0')};
+    background: #fafafa;
+    border: 1px solid #777;
+    cursor: pointer;
+    padding: 5px;
+    border: 0;
+    &:hover {
+      background: #b63032;
+      i {
+        color: #fff;
+      }
+    }
+    i {
+      color: #e23337;
+      font-size: 18px;
     }
   }
 `;

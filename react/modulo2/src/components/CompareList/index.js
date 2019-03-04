@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Container, Repository } from './styles';
+import { Container, Repository, ButtonRefresh } from './styles';
 
-const CompareList = ({ repositories }) => (
+const CompareList = ({
+  repositories, removeItem, refLoading, refresh,
+}) => (
   <Container>
     {repositories.map(repository => (
       <Repository key={repository.id}>
@@ -29,6 +31,13 @@ const CompareList = ({ repositories }) => (
               <small>last commit</small>
             </li>
           </ul>
+          <button onClick={e => removeItem(e, repository.id)}>
+            <i className="fa fa-times " />
+          </button>
+
+          <ButtonRefresh left onClick={e => refresh(e, repository.id)}>
+            <i className={`${refLoading}` ? 'fa fa-refresh' : 'fa fa-refresh fa-pulse'} />
+          </ButtonRefresh>
         </header>
       </Repository>
     ))}
