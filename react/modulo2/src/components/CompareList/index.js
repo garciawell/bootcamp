@@ -16,7 +16,7 @@ const CompareList = ({
           <ul>
             <li>
               {repository.stargazers_count}
-              <small>start</small>
+              <small> Star</small>
             </li>
             <li>
               {repository.forks_count}

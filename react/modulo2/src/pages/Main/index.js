@@ -83,7 +83,6 @@ export default class Main extends Component {
 
     try {
       const { data } = await api.get(`/repos/${repository.full_name}`);
-      console.log('teste', data);
 
       data.lastCommit = moment(data.pushed_at).fromNow();
 

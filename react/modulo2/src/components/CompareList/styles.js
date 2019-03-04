@@ -58,6 +58,7 @@ export const Repository = styled.div`
         font-weight: normal;
         font-size: 12px;
         color: #999;
+        margin-left: 5px;
         font-style: italic;
       }
       &:nth-child(2n-1) {
