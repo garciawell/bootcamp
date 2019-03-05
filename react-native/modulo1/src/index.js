@@ -1,6 +1,9 @@
+import "./config/ReactotronConfig";
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Button } from "react-native";
 import Todo from "./components/Todo";
+
+console.tron.log("Hello WOrlds");
 
 export default class App extends Component {
   state = {
@@ -53,6 +56,7 @@ export default class App extends Component {
   };
 
   render() {
+    console.log("teste");
     return (
       <View style={styles.container}>
         <View style={styles.box} />
