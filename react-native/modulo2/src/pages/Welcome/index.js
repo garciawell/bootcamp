@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
  import api from '~/services/api';
+ import PropTypes from 'prop-types';
 import {
  AsyncStorage, View, Text, TextInput, TouchableOpacity, StatusBar, ActivityIndicator
 } from 'react-native';
@@ -7,6 +8,15 @@ import {
  import styles from './styles';
 
 export default class Welcome extends Component {
+
+  static propTypes = {
+    navigation: PropTypes.shape({
+      navigate: PropTypes.func
+    }).isRequired
+  };
+
+
+
   state = {
     username: '',
     loading: false,
