@@ -1,6 +1,9 @@
 import './config/ReactotronConfig';
+import './config/DevToolsConfig';
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
+import Todo from './components/Todo';
+// import Todo from '~/components/Todo';
 
 console.tron.log('Hello WOrlds');
 
@@ -19,22 +22,6 @@ export default class App extends Component {
       },
     ],
   };
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        text: 'Hello Worlds',
-      });
-    }, 3000);
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextState.counter < 5;
-  }
-
-  componentDidUpdate(prevProps, prevState) {}
-
-  componentWillUnmount() {}
 
   handleAddCounter = () => {
     this.setState({
@@ -58,12 +45,8 @@ export default class App extends Component {
     console.log('teste');
     return (
       <View style={styles.container}>
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
+        <Todo title="Fazer café" />
+        <Todo title="Fazer café2" />
       </View>
     );
   }
@@ -72,17 +55,11 @@ export default class App extends Component {
 const bgColor = '#333';
 
 const styles = StyleSheet.create({
-  box: {
-    height: 80,
-    margin: 10,
-    transform: [{ rotateZ: '20deg' }],
-    width: 80,
-  },
   container: {
     alignContent: 'center',
     backgroundColor: bgColor,
     flex: 1,
-    flexDirection: 'row',
+    flexDirection: 'column',
     flexWrap: 'wrap',
     justifyContent: 'center',
   },
