@@ -5,7 +5,7 @@ import {
   StyleSheet, View, Platform, Text,
 } from 'react-native';
 
-console.tron.log('Hello WOrlds');
+// console.tron.log('Hello WOrlds');
 
 export default class App extends Component {
   state = {};
