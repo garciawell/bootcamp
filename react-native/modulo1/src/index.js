@@ -1,7 +1,7 @@
 import './config/ReactotronConfig';
 import './config/DevToolsConfig';
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Platform, Text } from 'react-native';
 import Todo from '~/components/Todo';
 
 console.tron.log('Hello WOrlds');
@@ -44,6 +44,7 @@ export default class App extends Component {
     console.log('teste');
     return (
       <View style={styles.container}>
+        {Platform.OS === 'ios' ? <Text style={styles.text}>IOS</Text> : <Text style={styles.text}>Android</Text>}
         <Todo title="Fazer café" />
         <Todo title="Fazer café2" />
       </View>
@@ -55,11 +56,21 @@ const bgColor = '#333';
 
 const styles = StyleSheet.create({
   container: {
-    alignContent: 'center',
+    alignItems: 'center',
     backgroundColor: bgColor,
     flex: 1,
     flexDirection: 'column',
     flexWrap: 'wrap',
     justifyContent: 'center',
+  },
+  text: {
+    ...Platform.select({
+      ios: {
+        fontWeight:'bold'
+      },
+      android:{
+        fontSize: 36
+      }
+    }),
   },
 });
