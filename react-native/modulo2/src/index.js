@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet, View, Platform, Text,
 } from 'react-native';
-
+import Routes from '~/routes'
 // console.tron.log('Hello WOrlds');
 
 export default class App extends Component {
@@ -12,22 +12,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Text>APLICATIVO</Text>
-      </View>
+      <Routes/>
     );
   }
 }
-
-const bgColor = '#333';
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    backgroundColor: bgColor,
-    flex: 1,
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-  },
-});
