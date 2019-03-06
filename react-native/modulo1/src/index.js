@@ -1,30 +1,29 @@
-import "./config/ReactotronConfig";
-import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Button } from "react-native";
-import Todo from "./components/Todo";
+import './config/ReactotronConfig';
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
 
-console.tron.log("Hello WOrlds");
+console.tron.log('Hello WOrlds');
 
 export default class App extends Component {
   state = {
     counter: 0,
-    text: "",
+    text: '',
     todos: [
       {
         id: 0,
-        text: "Fazer Café"
+        text: 'Fazer Café',
       },
       {
         id: 1,
-        text: "Estudar GO native"
-      }
-    ]
+        text: 'Estudar GO native',
+      },
+    ],
   };
 
   componentDidMount() {
     setTimeout(() => {
       this.setState({
-        text: "Hello Worlds"
+        text: 'Hello Worlds',
       });
     }, 3000);
   }
@@ -39,7 +38,7 @@ export default class App extends Component {
 
   handleAddCounter = () => {
     this.setState({
-      counter: this.state.counter + 1
+      counter: this.state.counter + 1,
     });
   };
 
@@ -49,14 +48,14 @@ export default class App extends Component {
         ...this.state.todos,
         {
           id: Math.random(),
-          text: "Estudar GO native22"
-        }
-      ]
+          text: 'Estudar GO native22',
+        },
+      ],
     });
   };
 
   render() {
-    console.log("teste");
+    console.log('teste');
     return (
       <View style={styles.container}>
         <View style={styles.box} />
@@ -70,20 +69,21 @@ export default class App extends Component {
   }
 }
 
+const bgColor = '#333';
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    backgroundColor: "#333",
-    flexWrap: "wrap",
-    alignContent: "center",
-    justifyContent: "center"
-  },
   box: {
-    width: 80,
     height: 80,
     margin: 10,
-    backgroundColor: "#f00",
-    transform: [{ rotateZ: "20deg" }]
-  }
+    transform: [{ rotateZ: '20deg' }],
+    width: 80,
+  },
+  container: {
+    alignContent: 'center',
+    backgroundColor: bgColor,
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  },
 });
