@@ -1,8 +1,7 @@
-import './config/ReactotronConfig';
-import './config/DevToolsConfig';
+import '~/config/ReactotronConfig';
+// import '~/config/DevToolsConfig';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { View } from 'react-native';
 import store from './store';
 import TodoList from './TodoList';
 

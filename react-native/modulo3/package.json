@@ -13,7 +13,9 @@
     "react": "16.6.3",
     "react-native": "0.58.6",
     "react-redux": "^6.0.1",
-    "redux": "^4.0.1"
+    "reactotron-redux": "^3.1.0",
+    "redux": "^4.0.1",
+    "reactotron-react-native": "^3.2.1"
   },
   "devDependencies": {
     "babel-core": "7.0.0-bridge.0",
@@ -30,8 +32,7 @@
     "jest": "24.1.0",
     "metro-react-native-babel-preset": "0.53.0",
     "react-devtools": "^3.6.1",
-    "react-test-renderer": "16.6.3",
-    "reactotron-react-native": "^3.2.0"
+    "react-test-renderer": "16.6.3"
   },
   "jest": {
     "preset": "react-native"

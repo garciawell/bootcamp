@@ -1,10 +1,10 @@
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
+import todos from './reducers/todos';
+// ACTION
+// Adicionar todo
+// Marcar Completo
 
-// Reducer
-function reducer() {
-  return ['fazer café', 'Estudar React'];
-}
-
-const store = createStore(reducer);
+const reactotronStateMiddleware = __DEV__ ? console.tron.createEnhancer : () => {};
+const store = createStore(todos, compose(reactotronStateMiddleware()));
 
 export default store;
