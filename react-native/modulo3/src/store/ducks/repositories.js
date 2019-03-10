@@ -19,16 +19,16 @@ const INITIAL_STATE = {
 
 export default function repositories(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'LOAD_REPOSITORIES_REQUEST':
+    case Types.LOAD_REQUEST:
       return { ...state, loading: true };
-    case 'LOAD_REPOSITORIES_SUCCESS':
+    case Types.LOAD_SUCCESS:
       return {
         ...state,
         data: action.payload.data,
         loading: false,
         error: false,
       };
-    case 'LOAD_REPOSITORIES_FAILURE':
+    case Types.LOAD_FAILURE:
       return { ...state, error: true, loading: false };
     default:
       return state;

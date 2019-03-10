@@ -24,7 +24,7 @@ function* loadRepositories() {
 
     yield put(RepositoriesActions.loadRepositoriesSuccess(response));
   } catch (err) {
-    yield put(RepositoriesActions.loadRpositoriesFailure());
+    yield put(RepositoriesActions.loadRepositoriesFailure());
   }
 }
 

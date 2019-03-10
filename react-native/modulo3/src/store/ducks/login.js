@@ -19,16 +19,16 @@ const INITIAL_STATE = {
 
 export default function login(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case 'LOGIN_REQUEST':
+    case Types.REQUEST:
       return { ...state, loading: true };
-    case 'LOGIN_SUCCESS':
+    case Types.SUCCESS:
       return {
         ...state,
         username: action.payload.username,
         error: false,
         loading: false,
       };
-    case 'LOGIN_FAILURE':
+    case Types.FAILURE:
       return { ...state, error: true, loading: false };
     default:
       return state;

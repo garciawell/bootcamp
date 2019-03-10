@@ -13,14 +13,14 @@ class Repositories extends Component {
   }
 
   render() {
-    console.tron.log(repositories);
     const { repositories } = this.props;
+    const dataReq = repositories.data.data;
     return (
       <Container>
         {repositories.loading ? (
           <ActivityIndicator size="small" color="999" />
         ) : (
-          repositories.data.map(repository => <Text key={repository.id}>{repository.name}</Text>)
+          !!dataReq && dataReq.map(repository => <Text key={repository.id}>{repository.name}</Text>)
         )}
       </Container>
     );
