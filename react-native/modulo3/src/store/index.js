@@ -1,5 +1,5 @@
 import { createStore, compose } from 'redux';
-import reducer from './reducers/login';
+import reducer from './reducers';
 
 const reactotronStateMiddleware = __DEV__ ? console.tron.createEnhancer : () => {};
 const store = createStore(reducer, compose(reactotronStateMiddleware()));
