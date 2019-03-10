@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as TodosActions from '~/store/action/todos';
+import * as TodosActions from '~/store/actions/todos';
 
 const TodoList = ({
   todos, dispatch, addTodo, maskAsCompleted,
