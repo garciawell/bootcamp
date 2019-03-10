@@ -4,8 +4,7 @@ import { bindActionCreators } from 'redux';
 import {
   Container, Input, Button, ButtonText, Error,
 } from './styles';
-import * as LoginActions from '~/store/actions/login';
-import api from '../../services/api';
+import { Creators  as LoginActions } from '~/store/ducks/login';
 import { ActivityIndicator } from 'react-native';
 
 class Login extends Component {
@@ -17,7 +16,7 @@ class Login extends Component {
     const { username } = this.state;
     const { loginRequest } = this.props;
 
-    loginRequest(username); 
+    loginRequest(username);
   };
 
   render() {
