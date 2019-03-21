@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import MapboxGL from '@mapbox/react-native-mapbox-gl';
-import { Text, StyleSheet } from 'react-native';
+import {
+  Text, StyleSheet, Modal, View, TouchableHighlight,
+} from 'react-native';
 import { Container, AnnotationContainer, AnnotationFill } from './styles';
 
 MapboxGL.setAccessToken(
@@ -10,13 +12,18 @@ MapboxGL.setAccessToken(
 export default class Mapa extends Component {
   state = {
     point: '',
+    modalVisible: false,
   };
 
-  pointMap() {
-    console.tron.log('TESTE');
-    this.setState({
-      point: 'CLICADO',
-    });
+  // pointMap() {
+  //   console.tron.log('TESTE');
+  //   this.setState({
+  //     point: 'CLICADO',
+  //   });
+  // }
+
+  setModalVisible(visible) {
+    this.setState({ modalVisible: visible });
   }
 
   renderAnnotations() {
@@ -34,8 +41,18 @@ export default class Mapa extends Component {
     return (
       <Fragment>
         {this.state.point ? <Text>{this.state.point}</Text> : <Text>VAZIO</Text>}
+
+        <TouchableHighlight
+          onPress={() => {
+            this.setModalVisible(true);
+          }}
+        >
+          <Text>Show Modal</Text>
+        </TouchableHighlight>
         <MapboxGL.MapView
-          onPress={() => this.pointMap()}
+          onLongPress={() => {
+            this.setModalVisible(true);
+          }}
           style={styles.Container}
           centerCoordinate={[-49.6451598, -27.2177659]}
           showUserLocation
@@ -43,6 +60,28 @@ export default class Mapa extends Component {
         >
           {this.renderAnnotations()}
         </MapboxGL.MapView>
+        <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+          }}
+        >
+          <View style={{ marginTop: 22 }}>
+            <View>
+              <Text>Hello World!</Text>
+
+              <TouchableHighlight
+                onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}
+              >
+                <Text>Hide Modal</Text>
+              </TouchableHighlight>
+            </View>
+          </View>
+        </Modal>
       </Fragment>
     );
   }

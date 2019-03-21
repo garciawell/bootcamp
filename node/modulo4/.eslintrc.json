@@ -3,11 +3,10 @@
     "es6": true,
     "node": true
   },
-  "globals": {
-    "use": true
-  },
+
   "extends": "standard",
   "globals": {
+    "use": true,
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
   },
