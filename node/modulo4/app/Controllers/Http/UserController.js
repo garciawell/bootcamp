@@ -1,15 +1,15 @@
-"use strict";
+'use strict'
 
-const User = use("App/Models/User");
+const User = use('App/Models/User')
 
 class UserController {
-  async store({ request }) {
-    const data = request.only(["username", "email", "password"]);
+  async store ({ request }) {
+    const data = request.only(['username', 'email', 'password'])
 
-    const user = await User.create(data);
+    const user = await User.create(data)
 
-    return user;
+    return user
   }
 }
 
-module.exports = UserController;
+module.exports = UserController
