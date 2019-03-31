@@ -1,10 +1,9 @@
-'use strict'
+'use strict';
 
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
 
 module.exports = {
-
   /*
   |--------------------------------------------------------------------------
   | Application Name
@@ -81,7 +80,6 @@ module.exports = {
     |
     */
     jsonpCallback: 'callback',
-
 
     /*
     |--------------------------------------------------------------------------
@@ -173,7 +171,7 @@ module.exports = {
     | based on HTTP headers/query string.
     |
     */
-    locale: 'en'
+    locale: 'pt-br'
   },
 
   logger: {
