@@ -5,7 +5,7 @@ const Task = use('App/Models/Task')
 class TaskController {
   async index ({ params }) {
     const tasks = await Task.query()
-      .where('project_id', params.project_id)
+      .where('project_id', params.projects_id)
       .with('user')
       .fetch()
 
@@ -21,7 +21,7 @@ class TaskController {
       'file_id'
     ])
 
-    const task = await Task.create({ ...data, project_id: params.project_id })
+    const task = await Task.create({ ...data, project_id: params.projects_id })
     return task
   }
 
@@ -49,7 +49,7 @@ class TaskController {
 
   async destroy ({ params }) {
     const task = await Task.findOrFail(params.id)
-    await task.delete
+    await task.delete()
   }
 }
 
