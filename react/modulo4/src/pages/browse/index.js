@@ -6,6 +6,7 @@ import {
   Container, Title, List, Playlist,
 } from './styles';
 import { Creators as PlaylistActions } from '../../store/ducks/playlists';
+import Loading from '../../components/Loading';
 
 class browse extends Component {
   static propTypes = {
@@ -19,6 +20,7 @@ class browse extends Component {
           thumbnail: PropTypes.string,
         }),
       ),
+      loading: PropTypes.bool,
     }).isRequired,
   };
 
@@ -33,7 +35,10 @@ class browse extends Component {
 
     return (
       <Container>
-        <Title>Navegar</Title>
+        <Title>
+          Navegar
+          {playlists.loading && <Loading />}
+        </Title>
 
         <List>
           {playlists.data.map(playlist => (
