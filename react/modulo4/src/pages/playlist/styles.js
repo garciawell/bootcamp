@@ -65,4 +65,24 @@ export const Songlist = styled.table`
       text-align: right;
     }
   }
+
+  tbody {
+    td {
+      border-top: 1px solid #282828;
+      font-size: 13px;
+      padding: 0 10px;
+      line-height: 40px;
+
+      &:first-child {
+        width: 80px;
+        text-align: right;
+      }
+      &:last-child {
+        text-align: right;
+      }
+    }
+    tr:hover td {
+      background: #282828;
+    }
+  }
 `;
