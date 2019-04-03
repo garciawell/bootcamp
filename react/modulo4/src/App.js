@@ -11,6 +11,7 @@ import Header from './components/Header';
 
 import Routes from './routes';
 import store from './store';
+import ErrorBox from './components/ErrorBox';
 
 const App = () => (
   <Provider store={store}>
@@ -20,6 +21,7 @@ const App = () => (
           <Container>
             <Sidebar />
             <Content>
+              <ErrorBox />
               <Header />
               <Routes />
             </Content>
