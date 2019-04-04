@@ -2,13 +2,15 @@ import './config/ReactotronConfig';
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 
 import store from '~/store';
 
 const App = () => (
   <Provider store={store}>
-    <View />
+    <View>
+      <Text>Start Project</Text>
+    </View>
   </Provider>
 );
 
