@@ -28,7 +28,8 @@ const Player = ({
   handlePosition,
   setPosition,
   positionShown,
-  progress
+  progress,
+  setVolume,
 }) => (
   <Container>
     {/* <Sound url="" /> */}
@@ -39,7 +40,8 @@ const Player = ({
         playStatus={player.status}
         onFinishedPlaying={next}
         onPlaying={playing}
-        position={player.position} 
+        position={player.position}
+        volume={player.volume}
       />
     )}
 
@@ -100,7 +102,8 @@ const Player = ({
         railStyle={{ background: '#404040', boderRadius: 10 }}
         trackStyle={{ background: '#fff' }}
         handleStyle={{ display: 'none' }}
-        // value={100}
+        onChange={setVolume}
+        value={player.volume}
       />
     </Volume>
   </Container>
@@ -127,6 +130,7 @@ Player.propTypes = {
   setPosition: PropTypes.func.isRequired,
   positionShown: PropTypes.string.isRequired,
   progress: PropTypes.number.isRequired,
+  setVolume: PropTypes.number.isRequired,
 };
 
 const mapDispatchToProps = dispatch => bindActionCreators(PlayerActions, dispatch);
@@ -147,10 +151,11 @@ const mapStateToProps = state => ({
   position: msToTime(state.player.position),
   duration: msToTime(state.player.duration),
   positionShown: msToTime(state.player.positionShown),
-  progress: parseInt(
-    (state.player.positionShown || state.player.position) * 
-    (1000 / state.player.duration),
-  10) || 0,
+  progress:
+    parseInt(
+      (state.player.positionShown || state.player.position) * (1000 / state.player.duration),
+      10,
+    ) || 0,
 });
 
 export default connect(
