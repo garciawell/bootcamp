@@ -27,7 +27,9 @@
   },
   "settings": {
     "import/resolver": {
-      "babel-plugin-root-import": {}
+      "babel-plugin-root-import": {
+        "rootPathSuffix": "src"
+      }
     }
   }
 }
