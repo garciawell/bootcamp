@@ -1,18 +1,11 @@
-import Reactotron from "reactotron-react-native";
-import { reactotronRedux } from "reactotron-redux";
-import reactotronSaga from "reactotron-redux-saga";
+import Reactotron from 'reactotron-react-native';
 
 if (__DEV__) {
-  const tron = Reactotron.configure({
-    // host: '192.168.56.1'
-    host: "10.0.3.2"
-  }) // controls connection & communication settings
+  const tron = Reactotron.configure()
     .useReactNative()
-    .use(reactotronRedux())
-    .use(reactotronSaga())
-    .connect(); // let's connect!
-
-  console.tron = tron;
+    .connect();
 
   tron.clear();
+
+  console.tron = tron;
 }
