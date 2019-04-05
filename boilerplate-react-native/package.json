@@ -1,7 +1,7 @@
 {
-  "name": "react-native-template-rocketseat-basic",
+  "name": "react-native-template-rocketseat-advanced",
   "version": "2.0.4",
-  "description": "Template para projetos em React Native, com Estrutura de Pastas customizada, Estilos Globais, ESLint + Prettier + Babel Plugin Root Import, React Navigation, Reactotron e Axios configurados.",
+  "description": "Template para projetos em React Native, com Estrutura de Pastas customizada, Estilos Globais, ESLint + Prettier + Babel Plugin Root Import, React Navigation, Redux, Redux Saga, Reactotron e Axios configurados.",
   "keywords": [
     "react-native",
     "template",
@@ -10,13 +10,15 @@
     "react-navigation",
     "reactotron",
     "babel-root-import",
-    "axios"
+    "axios",
+    "redux",
+    "redux-saga"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rocketseat/react-native-template-rocketseat-basic.git"
+    "url": "git+https://github.com/Rocketseat/react-native-template-rocketseat-advanced.git"
   },
-  "homepage": "https://github.com/Rocketseat/react-native-template-rocketseat-basic#readme",
+  "homepage": "https://github.com/Rocketseat/react-native-template-rocketseat-advanced#readme",
   "author": "Claudio Orlandi <claudio@rocketseat.com.br>",
   "license": "MIT"
 }
