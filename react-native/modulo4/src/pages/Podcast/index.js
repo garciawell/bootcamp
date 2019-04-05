@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
   Container,
@@ -13,16 +14,22 @@ import {
   PodcastTitle,
   Background,
   PlayButtonText,
+  BackButton,
 } from './styles';
 
 export default class Podcast extends Component {
   static propTypes = {
     navigation: PropTypes.shape({
       getParam: PropTypes.func,
+      goBack: PropTypes.func,
     }).isRequired,
   };
 
-  componentDidMount() {}
+  handleBack = () => {
+    const { navigation } = this.props;
+
+    navigation.goBack();
+  };
 
   render() {
     const { navigation } = this.props;
@@ -33,6 +40,9 @@ export default class Podcast extends Component {
           ListHeaderComponent={() => (
             <PodcastDetails>
               <Background source={{ uri: podcast.cover }} blurRadius={5} />
+              <BackButton onPress={this.handleBack}>
+                <Icon name="arrow-back" size={24} color="#fff" />
+              </BackButton>
               <Cover source={{ uri: podcast.cover }} />
               <PodcastTitle>{podcast.title}</PodcastTitle>
               <PlayButton onPress={() => {}}>
