@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { connect } from 'react-redux';
-import { bindActionsCreators } from 'redux';
+import { bindActionCreators } from 'redux';
 import PlayerActions from '~/store/ducks/player';
 
 import {
@@ -74,6 +74,9 @@ class Podcast extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => bindActionsCreators(PlayerActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(PlayerActions, dispatch);
 
-export default connect(mapDispatchToProps)(Podcast);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(Podcast);

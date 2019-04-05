@@ -12,27 +12,8 @@ import PlayerActions from '~/store/ducks/player';
 export function* init() {
   yield call(TrackPlayer.setupPlayer);
 
-  TrackPlayer.updateOptions({
-    capabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-      TrackPlayer.CAPABILITY_STOP,
-    ],
-    notificationCapabilities: [
-      TrackPlayer.CAPABILITY_PLAY,
-      TrackPlayer.CAPABILITY_PAUSE,
-      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-      TrackPlayer.CAPABILITY_STOP,
-    ],
-    compactCapabilities: [TrackPlayer.CAPABILITY_PLAY, TrackPlayer.CAPABILITY_PAUSE],
-  });
-
-  TrackPlayer.addEventListener('playback-state', (data) => {
-    console.tron.log('STATE', data);
-  });
+  TrackPlayer.addEventListener('playback-track-changed', console.tron.log());
+  TrackPlayer.addEventListener('playback-state', console.tron.log());
 }
 
 export function* setPodcast({ podcast }) {
