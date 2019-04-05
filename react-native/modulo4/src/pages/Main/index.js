@@ -17,7 +17,7 @@ class Main extends Component {
       uri: PropTypes.string,
       title: PropTypes.string,
     }).isRequired,
-  }
+  };
 
   componentDidMount() {
     const { loadRequest } = this.props;
@@ -28,7 +28,7 @@ class Main extends Component {
     const { navigation } = this.props;
 
     navigation.navigate('Podcast', { podcast });
-  }
+  };
 
   render() {
     const { podcasts } = this.props;
@@ -57,6 +57,9 @@ const mapStateToProps = state => ({
   podcasts: state.podcasts,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(PodcastsActions, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators(PodcastsActions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Main);
