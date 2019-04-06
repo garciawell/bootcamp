@@ -11,6 +11,7 @@ const { Types, Creators } = createActions({
   pause: null,
   prev: null,
   next: null,
+  reset: null,
 });
 
 export const PlayerTypes = Types;
