@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import PlayerActions from '~/store/ducks/player';
 
 import {
   Container,
@@ -12,7 +14,9 @@ import {
   ControlButton,
 } from './styles';
 
-const Player = ({ player, currentEpisode }) => player.current && (
+const Player = ({
+  player, currentEpisode, pause, play, next, prev,
+}) => player.current && (
 <Container>
   <CoverBackground source={{ uri: currentEpisode.artwork }} />
   <EpisodeInfo>
@@ -21,18 +25,20 @@ const Player = ({ player, currentEpisode }) => player.current && (
   </EpisodeInfo>
 
   <Controls>
-    <ControlButton onPress={() => {}}>
+    <ControlButton onPress={prev}>
       <ControlIcon name="skip-previous" />
     </ControlButton>
-    <ControlButton onPress={() => {}}>
-      <ControlIcon name="play-circle-filled" />
+    <ControlButton onPress={player.playing ? pause : play}>
+      <ControlIcon name={player.playing ? 'pause-circle-filled' : 'play-circle-filled'} />
     </ControlButton>
-    <ControlButton onPress={() => {}}>
+    <ControlButton onPress={next}>
       <ControlIcon name="skip-next" />
     </ControlButton>
   </Controls>
 </Container>
 );
+
+const mapDispatchToProps = dispatch => bindActionCreators(PlayerActions, dispatch);
 
 const mapStateToProps = state => ({
   player: state.player,
@@ -41,4 +47,7 @@ const mapStateToProps = state => ({
     : null,
 });
 
-export default connect(mapStateToProps)(Player);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Player);
