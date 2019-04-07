@@ -19,6 +19,14 @@ class Modal extends Component {
     cordinations: PropTypes.shape({}).isRequired,
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { inputRepositories, cordinations, getRepositoriesRequest } = this.props;
+
+    getRepositoriesRequest(inputRepositories, cordinations);
+  };
+
   render() {
     const {
       getRepositoriesRequest,
@@ -32,18 +40,22 @@ class Modal extends Component {
       <Container>
         <CtIn>
           <Title>Adicionar novo usuário</Title>
-          <Input
-            placeholder="Usuário do github"
-            onChange={handleChange}
-            name="inputRepositories"
-            value={inputRepositories}
-          />
-          <Dflex>
-            <Button onClick={() => closeModal()}>Cancelar</Button>
-            <Button success onClick={() => getRepositoriesRequest(inputRepositories, cordinations)}>
-              Salvar
-            </Button>
-          </Dflex>
+          <form onSubmit={this.handleSubmit}>
+            <Input
+              placeholder="Usuário do github"
+              onChange={handleChange}
+              name="inputRepositories"
+              value={inputRepositories}
+            />
+            <Dflex>
+              <Button type="button" onClick={() => closeModal()}>
+                Cancelar
+              </Button>
+              <Button type="submit" success>
+                Salvar
+              </Button>
+            </Dflex>
+          </form>
         </CtIn>
       </Container>
     );

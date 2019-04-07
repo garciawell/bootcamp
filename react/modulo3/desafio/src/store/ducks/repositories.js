@@ -1,3 +1,5 @@
+import { toast } from 'react-toastify';
+
 export const Types = {
   GET_REQUEST: 'repositories/GET_REQUEST',
   GET_SUCCESS: 'repositories/GET_SUCCESS',
@@ -23,6 +25,9 @@ export default function repositories(state = INITIAL_STATE, action) {
         // user: [...state.users, action.payload.users],
       };
     case Types.REMOVE:
+      toast.error('Usuário removido !', {
+        position: toast.POSITION.TOP_RIGHT,
+      });
       return { ...state, data: state.data.filter(user => user.id !== action.payload.id) };
     default:
       return state;

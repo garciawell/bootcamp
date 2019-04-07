@@ -15,8 +15,8 @@ const Sidebar = ({ data, removeRepositories }) => (
           <Avatar src="https://avatars2.githubusercontent.com/u/2254731?v=4" alt="Avatar" />
         </div>
         <div>
-          <Title>Wellington Garcia</Title>
-          <SubTitle>garciawell</SubTitle>
+          <Title>Diego Fernandes</Title>
+          <SubTitle>diego3g</SubTitle>
         </div>
         <div>
           <Icon>X</Icon>

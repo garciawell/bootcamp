@@ -33,8 +33,8 @@ export const SubTitle = styled.span`
 `;
 
 export const Avatar = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 4px solid pink;
 `;
