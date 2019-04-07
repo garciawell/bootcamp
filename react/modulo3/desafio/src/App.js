@@ -1,15 +1,25 @@
-import React, { Fragment } from 'react';
-import 'mapbox-gl/dist/mapbox-gl.css';
-import { Provider } from 'react-redux';
-import Mapa from './components/Mapa';
-import Sidebar from './components/Sidebar';
-import store from './store';
+import React, { Fragment } from "react";
+import { BrowserRouter } from "react-router-dom";
+
+import "./config/reactotron";
+import { Provider } from "react-redux";
+import GlobalStyle from "./styles/global";
+
+import { Wrapper } from "./styles/components";
+
+import Routes from "./routes";
+import store from "./store";
 
 const App = () => (
   <Provider store={store}>
-    <Mapa />
-    <Sidebar />
-;
+    <BrowserRouter>
+      <Fragment>
+        <Wrapper>
+          <Routes />
+        </Wrapper>
+        <GlobalStyle />
+      </Fragment>
+    </BrowserRouter>
   </Provider>
 );
 export default App;
