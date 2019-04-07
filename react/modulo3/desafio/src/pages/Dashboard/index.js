@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container } from './styles';
-import { Creators as PlaylistActions } from '../../store/ducks/playlists';
+import { Creators as RepositoriesActions } from '../../store/ducks/repositories';
 import Map from '../../components/Mapa';
 import Sidebar from '../../components/Sidebar';
 
@@ -35,10 +35,10 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-  // playlists: state.playlists
+  repositories: state.repositories,
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(PlaylistActions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(RepositoriesActions, dispatch);
 
 export default connect(
   mapStateToProps,

@@ -15,6 +15,7 @@ export const List = styled.ul`
   li {
     display: flex;
     align-items: center;
+    justify-content: space-between;
   }
 `;
 

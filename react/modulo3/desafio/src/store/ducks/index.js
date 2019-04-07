@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import playlists from './playlists';
+import repositories from './repositories';
+import cordinations from './cordinations';
+import modal from './modal';
 import error from './error';
 
 export default combineReducers({
-  playlists,
+  repositories,
+  cordinations,
+  modal,
   error,
 });
