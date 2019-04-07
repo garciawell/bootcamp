@@ -6,12 +6,17 @@ export const Types = {
 const INITIAL_STATE = {
   openModal: false,
   inputRepo: '',
+  cordinations: null,
 };
 
 export default function modal(state = INITIAL_STATE, action) {
   switch (action.type) {
     case Types.CLICK_MODAL:
-      return { ...state, openModal: true };
+      return {
+        ...state,
+        openModal: true,
+        cordinations: action.payload.data,
+      };
     case Types.CLOSE_MODAL:
       return { ...state, openModal: false };
     default:
@@ -20,7 +25,10 @@ export default function modal(state = INITIAL_STATE, action) {
 }
 
 export const Creators = {
-  clickModal: () => ({ type: Types.CLICK_MODAL }),
+  clickModal: data => ({
+    type: Types.CLICK_MODAL,
+    payload: { data },
+  }),
 
   closeModal: () => ({ type: Types.CLOSE_MODAL }),
 };

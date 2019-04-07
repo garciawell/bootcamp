@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import MapGL, { Marker } from 'react-map-gl';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { toast } from 'react-toastify';
 import { Img } from './styles';
 import { Creators as RepositoriesActions } from '../../store/ducks/repositories';
 import { Creators as CordinationsActions } from '../../store/ducks/cordinations';
@@ -16,7 +17,7 @@ class Map extends Component {
       height: window.innerHeight,
       latitude: -23.5439948,
       longitude: -46.6065452,
-      zoom: 14,
+      zoom: 10,
     },
   };
 
@@ -45,7 +46,7 @@ class Map extends Component {
     const { clickModal, handleCordinations } = this.props;
     const [latitude, longitude] = e.lngLat;
 
-    await clickModal();
+    await clickModal({ latitude, longitude });
     // await handleCordinations({ latitude, longitude });
 
     // console.log(`Latitude: ${latitude} \nLongitude: ${longitude}`);
@@ -59,16 +60,16 @@ class Map extends Component {
 
   render() {
     const { viewport, inputRepositories } = this.state;
-    const { openModal, inputRepo, cordination } = this.props;
+    const { openModal, inputRepo, repositories } = this.props;
 
-    console.log('garcia', cordination);
+    console.log('garcia', this.props);
 
     return (
       <Fragment>
         <MapGL
           {...viewport}
           onClick={this.handleMapClick}
-          mapStyle="mapbox://styles/mapbox/basic-v9"
+          mapStyle="mapbox://styles/mapbox/dark-v9"
           mapboxApiAccessToken="pk.eyJ1IjoiZGllZ28zZyIsImEiOiJjamh0aHc4em0wZHdvM2tyc3hqbzNvanhrIn0.3HWnXHy_RCi35opzKo8sHQ"
           onViewportChange={viewport => this.setState({ viewport })}
         >
@@ -80,13 +81,15 @@ class Map extends Component {
           >
             <Img src="https://avatars2.githubusercontent.com/u/2254731?v=4" alt="Avatar" />
           </Marker>
-          {cordination.length > 0
-            && cordination.cordinations.map(cor => (
+
+          {repositories
+            && repositories.data.map(cor => (
               <Marker
-                latitude={cor.latitude}
-                longitude={cor.longitude}
+                latitude={cor.cordinations.latitude}
+                longitude={cor.cordinations.longitude}
                 onClick={this.handleMapClick}
                 captureClick
+                key={cor.id}
               >
                 <Img src="https://avatars2.githubusercontent.com/u/2254731?v=4" alt="Avatar" />
               </Marker>
@@ -103,7 +106,6 @@ class Map extends Component {
 const mapStateToProps = state => ({
   repositories: state.repositories,
   openModal: state.modal.openModal,
-  cordination: state.cordinations,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({ ...RepositoriesActions, ...ModalActions, ...CordinationsActions }, dispatch);

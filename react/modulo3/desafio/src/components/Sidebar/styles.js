@@ -3,11 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 350px;
   height: 90%;
-  position: absolute;
+  position: fixed;
   background: #fff;
   z-index: 999;
   left: 50px;
   top: 5%;
+  border-radius: 5px;
 `;
 
 export const List = styled.ul`
@@ -16,6 +17,7 @@ export const List = styled.ul`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 15px 0;
   }
 `;
 
@@ -38,6 +40,19 @@ export const Avatar = styled.img`
 `;
 
 export const Icon = styled.i`
-  background: #f00;
+  background: #bd0000;
   color: #fff;
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+  /* line-height: 2px; */
+  display: flex;
+  font-style: normal;
+  justify-content: center;
+  font-size: 12px;
+  cursor: pointer;
 `;

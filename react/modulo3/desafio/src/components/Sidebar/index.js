@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import {
   Container, Title, SubTitle, List, Icon, Avatar,
 } from './styles';
+import { Creators as RepositoriesActions } from '../../store/ducks/repositories';
 
-const Sidebar = ({ data }) => (
+const Sidebar = ({ data, removeRepositories }) => (
   <Container>
     <List>
       <li>
@@ -18,7 +19,7 @@ const Sidebar = ({ data }) => (
           <SubTitle>garciawell</SubTitle>
         </div>
         <div>
-          <Icon>Close</Icon>
+          <Icon>X</Icon>
         </div>
       </li>
       {data.length > 0
@@ -32,12 +33,11 @@ const Sidebar = ({ data }) => (
               <SubTitle>{repo.login}</SubTitle>
             </div>
             <div>
-              <Icon>Close</Icon>
+              <Icon onClick={() => removeRepositories(repo.id)}>X</Icon>
             </div>
           </li>
         ))}
     </List>
-    {console.log(data)}
   </Container>
 );
 
@@ -45,10 +45,9 @@ const mapStateToProps = state => ({
   data: state.repositories.data,
 });
 
-// const mapDispatchToProps = dispatch =>
-//   bindActionCreators(Actions, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators(RepositoriesActions, dispatch);
 
 export default connect(
   mapStateToProps,
-  // mapDispatchToProps
+  mapDispatchToProps,
 )(Sidebar);

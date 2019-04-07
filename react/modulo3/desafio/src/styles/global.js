@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 const GlobalStyle = createGlobalStyle`
   *{
