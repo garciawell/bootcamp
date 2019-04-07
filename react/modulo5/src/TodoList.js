@@ -1,41 +1,19 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
-export default class TodoList extends Component {
+class TodoList extends Component {
   state = {
-    newTodo: "",
-    todos: []
-  };
-  componentDidMount() {
-    const todos = localStorage.getItem("todos");
-
-    if (todos) {
-      this.setState({ todos: JSON.parse(todos) });
-    }
-  }
-
-  handleInputChage = e => {
-    this.setState({ newTodo: e.target.value });
+    newTodo: ""
   };
 
-  handleAddTodo = () => {
-    this.setState(
-      {
-        todos: [...this.state.newTodo, this.state.newTodo],
-        newTodo: ""
-      },
-      () => {
-        localStorage.setItem("todos", JSON.stringify(this.state.todos));
-      }
-    );
-  };
+  handleAddTodo = () => {};
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.todos.map(todo => (
-            <li key={todo}>{todo}</li>
-          ))}
+          {this.props.todos &&
+            this.props.todos.map(todo => <li key={todo}>{todo}</li>)}
         </ul>
         <input
           onChange={this.handleInputChage}
@@ -48,3 +26,12 @@ export default class TodoList extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  todos: state.data
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(TodoList);
