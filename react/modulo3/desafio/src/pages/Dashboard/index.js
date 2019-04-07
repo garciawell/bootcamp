@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Container } from './styles';
 import { Creators as PlaylistActions } from '../../store/ducks/playlists';
+import Map from '../../components/Mapa';
+import Sidebar from '../../components/Sidebar';
 
-class Example extends Component {
+class Dashboard extends Component {
   state = {};
   // static propTypes = {
   //   getPlaylistsRequest: PropTypes.func.isRequired,
@@ -25,7 +27,8 @@ class Example extends Component {
   render() {
     return (
       <Container>
-        <h1>Boilerplate React</h1>
+        <Map />
+        <Sidebar />
       </Container>
     );
   }
@@ -40,4 +43,4 @@ const mapDispatchToProps = dispatch => bindActionCreators(PlaylistActions, dispa
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Example);
+)(Dashboard);

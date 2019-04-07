@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-// import 'rc-slider/assets/index.css';
+import { createGlobalStyle } from 'styled-components';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const GlobalStyle = createGlobalStyle`
   *{
