@@ -41,7 +41,7 @@ class Map extends Component {
 
   handleMapClick = async (e) => {
     const { clickModal } = this.props;
-    const [latitude, longitude] = e.lngLat;
+    const [longitude, latitude] = e.lngLat;
 
     await clickModal({ longitude, latitude });
   };
@@ -79,8 +79,8 @@ class Map extends Component {
           {repositories
             && repositories.data.map(cor => (
               <Marker
-                latitude={cor.cordinations.longitude}
-                longitude={cor.cordinations.latitude}
+                latitude={cor.cordinations.latitude}
+                longitude={cor.cordinations.longitude}
                 onClick={this.handleMapClick}
                 captureClick
                 key={cor.id}
