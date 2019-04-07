@@ -1,10 +1,8 @@
-import { combineReducers } from "redux";
-import playlists from "./playlists";
-import playDetails from "./playDetails";
-import error from "./error";
-import player from "./player";
+import { combineReducers } from 'redux';
+import playlists from './playlists';
+import error from './error';
 
 export default combineReducers({
   playlists,
-  error
+  error,
 });
