@@ -3,7 +3,6 @@ import './config/DevToolsConfig';
 import React, { Component } from 'react';
 import createNavigator from '~/routes';
 import { AsyncStorage } from 'react-native';
-// console.tron.log('Hello WOrlds');
 
 export default class App extends Component {
   state = {
