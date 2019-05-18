@@ -1,22 +1,4 @@
 {
-<<<<<<< HEAD
-    "env": {
-        "commonjs": true,
-        "es6": true,
-        "node": true
-    },
-    "extends": "standard",
-    "globals": {
-        "Atomics": "readonly",
-        "SharedArrayBuffer": "readonly"
-    },
-    "parserOptions": {
-        "ecmaVersion": 2018
-    },
-    "rules": {
-    }
-}
-=======
   "env": {
     "commonjs": true,
     "es6": true,
@@ -32,4 +14,3 @@
   },
   "rules": {}
 }
->>>>>>> 824fd6a17eb710efd4a49387de96aba30079a55a
