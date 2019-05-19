@@ -1,7 +1,6 @@
 require('dotenv').config({
   path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
 })
-const Sequelize = require('sequelize')
 
 module.exports = {
   host: process.env.DB_HOST,
