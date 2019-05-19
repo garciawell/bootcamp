@@ -1,9 +1,19 @@
-require('dotenv')
+require('dotenv').config({
+  path: process.env.NODE_ENV === 'test' ? '.env.test' : '.env'
+})
+const Sequelize = require('sequelize')
 
 module.exports = {
-  username: 'root',
-  password: null,
-  database: 'database_development',
-  host: '127.0.0.1',
-  dialect: 'mysql'
+  host: process.env.DB_HOST,
+  username: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
+  dialect: process.env.DB_DIALECT || 'postgres',
+  storage: './__tests__/database.sqlite',
+  // operatorsAliases: Sequelize.Op, // use Sequelize.Op
+  define: {
+    timestamps: true,
+    underscored: true,
+    userscoredAll: true
+  }
 }
