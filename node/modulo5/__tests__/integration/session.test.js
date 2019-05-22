@@ -2,10 +2,21 @@ const request = require('supertest')
 const app = require('../../src/app')
 const truncate = require('../utils/truncate')
 const factory = require('../factories')
+const nodemailer = require('nodemailer')
+
+jest.mock('nodemailer')
+
+const transport = {
+  sendMail: jest.fn()
+}
 
 describe('Authentication', () => {
   beforeEach(async () => {
     await truncate()
+  })
+
+  beforeAll(() => {
+    nodemailer.createTransport.mockReturnValue(transport)
   })
   it('should be able to authenticate with valid credentials', async () => {
     const user = await factory.create('User', {
@@ -74,5 +85,27 @@ describe('Authentication', () => {
       .set('Authorization', `Bearer 121123123`)
 
     expect(response.status).toBe(401)
+  })
+
+  it('should received email notication when authenticated', async () => {
+    const user = await factory.create('User', {
+      password: '123123'
+    })
+
+    await request(app)
+      .post('/sessions')
+      .send({
+        email: user.email,
+        password: '123123'
+      })
+
+    await request(app)
+      .get('/dashboard')
+      .set('Authorization', `Bearer ${user.generateToken()}`)
+
+    expect(transport.sendMail).toHaveBeenCalledTimes(1)
+    expect(transport.sendMail.mock.calls[0][0].to).toBe(
+      `${user.name} <${user.email}>`
+    )
   })
 })
